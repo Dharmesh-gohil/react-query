@@ -22,7 +22,7 @@ const queryClient=useQueryClient()
     },
     onSuccess: () => {
       queryClient.invalidateQueries({queryKey:["tasks"]})
-      
+      toast.success("item deleted successfully to the list")
      }
   })
 
