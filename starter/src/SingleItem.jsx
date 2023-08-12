@@ -1,5 +1,6 @@
 import { useMutation ,useQueryClient} from "@tanstack/react-query";
 import customFetch from "./utils";
+import { toast } from "react-toastify";
 
 const SingleItem = ({ item }) => {
 const queryClient=useQueryClient()
@@ -9,8 +10,10 @@ const queryClient=useQueryClient()
     },
     onSuccess: () => {
       queryClient.invalidateQueries({queryKey:["tasks"]})
-      
-     }
+      toast.success("item updated successfully to the list")
+    },
+        onError: (error) => { toast.error(error.response.data.msg)}
+
   })
 
    const { mutate: deleteTask,isLoading } = useMutation({

@@ -2,7 +2,8 @@ import SingleItem from './SingleItem';
 import { useQuery } from '@tanstack/react-query';
 import customFetch from "./utils"
 
-const Items = ({ items }) => {
+// const Items = ({ items }) => { we removing props items data so we can use react query data
+  const Items = () => {
   //here axios return promise but we use customFetch so it also return promise coz it also contain axios
   // const result = useQuery({
   const { isLoading,data,isError,error}=useQuery({
@@ -31,6 +32,7 @@ const Items = ({ items }) => {
 
   return (
     <div className='items'>
+      {/* {items.taskList.map((item) => { */}
       {/* {data.data.taskList.map((item) => { */}
       {data.taskList.map((item) => {
     
